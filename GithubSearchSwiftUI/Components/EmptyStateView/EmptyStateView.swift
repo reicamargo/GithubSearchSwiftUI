@@ -33,5 +33,5 @@ struct EmptyStateView: View {
 }
 
 #Preview {
-    EmptyStateView(title: "This user has no followers", imageResource: .emptyStateLogo, description: "Go follow him/her! ♥️")
+    EmptyStateView(title: "This user has no followers", imageResource: .emptyStateLogo, description: "That's so sad 😔")
 }

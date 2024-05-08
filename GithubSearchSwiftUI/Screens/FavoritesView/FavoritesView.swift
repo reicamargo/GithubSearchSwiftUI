@@ -10,9 +10,15 @@ import SwiftUI
 struct FavoritesView: View {
     var body: some View {
         NavigationStack {
-            Text("Favorites")
-                .navigationTitle("Favorites")
-                .navigationBarTitleDisplayMode(.inline)
+            ZStack {
+                EmptyStateView(title: "You don't have any favorites", imageResource: .emptyStateLogo, description: "Go search and favorite them!")
+                
+                VStack {
+                    Text("")
+                }
+            }
+            .navigationTitle("Favorites")
+            .navigationBarTitleDisplayMode(.inline)
         }
     }
 }
