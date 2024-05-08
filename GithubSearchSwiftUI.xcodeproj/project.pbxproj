@@ -35,6 +35,7 @@
 		3D9D9D0F2BEBF527009E8232 /* UserDetailGroupInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9D9D0E2BEBF527009E8232 /* UserDetailGroupInfoViewModel.swift */; };
 		3D9D9D122BEC0CE3009E8232 /* FavoritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9D9D112BEC0CE3009E8232 /* FavoritesViewModel.swift */; };
 		3D9D9D152BEC1178009E8232 /* FavoriteListCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9D9D142BEC1178009E8232 /* FavoriteListCellView.swift */; };
+		3D9D9D172BEC126D009E8232 /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9D9D162BEC126D009E8232 /* PersistenceManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +68,7 @@
 		3D9D9D0E2BEBF527009E8232 /* UserDetailGroupInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailGroupInfoViewModel.swift; sourceTree = "<group>"; };
 		3D9D9D112BEC0CE3009E8232 /* FavoritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewModel.swift; sourceTree = "<group>"; };
 		3D9D9D142BEC1178009E8232 /* FavoriteListCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListCellView.swift; sourceTree = "<group>"; };
+		3D9D9D162BEC126D009E8232 /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				3D9D9CF32BEAE295009E8232 /* NetworkManager.swift */,
+				3D9D9D162BEC126D009E8232 /* PersistenceManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -376,6 +379,7 @@
 				3D9D9CE42BEABE65009E8232 /* GithubUser.swift in Sources */,
 				3D9D9CF62BEAEABF009E8232 /* AlertItem.swift in Sources */,
 				3D9D9CFA2BEAFC22009E8232 /* LoadingView.swift in Sources */,
+				3D9D9D172BEC126D009E8232 /* PersistenceManager.swift in Sources */,
 				3D9D9D082BEBE95B009E8232 /* Date+Ext.swift in Sources */,
 				3D9D9CF22BEAE137009E8232 /* FollowerGridCellView.swift in Sources */,
 				3D9D9CFC2BEAFD9D009E8232 /* EmptyStateView.swift in Sources */,

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct NetworkManager {
+final class NetworkManager {
     static let shared = NetworkManager()
     private let decoder = JSONDecoder()
     private let baseURL = "https://api.github.com/users/"
