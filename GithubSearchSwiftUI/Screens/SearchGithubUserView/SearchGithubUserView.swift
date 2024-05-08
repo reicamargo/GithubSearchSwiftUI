@@ -22,7 +22,7 @@ struct SearchGithubUserView: View {
                 SearchView(searchText: $searchText, textPlaceholder: "Enter a username")
                 
                 NavigationLink(destination: GithubUserProfileView(viewModel: GithubUserProfileViewModel(username: searchText))) {
-                    ActionButton(title: "Get followers", systemImage: "person.3")
+                    NavigationButton(title: "Get followers", systemImage: "person.3")
                 }
                 .disabled(searchText.isEmpty)
                 .buttonStyle(.bordered)

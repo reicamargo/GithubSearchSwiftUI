@@ -37,7 +37,9 @@ struct GithubUserProfileView: View {
                         })
                     }
                     .sheet(isPresented: $viewModel.showGithubUserDetailView) {
-                        GithubUserDetailView(login: viewModel.selectedUserLogin)
+                        GithubUserDetailView(viewModel: GithubUserDetailViewModel(login: viewModel.selectedUserLogin))
+                            .environmentObject(viewModel)
+                        /*, showDetailView: $viewModel.showGithubUserDetailView)*/
                     }
                 }
                 .task {
