@@ -23,6 +23,8 @@
 		3D9D9CF22BEAE137009E8232 /* GridCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9D9CF12BEAE137009E8232 /* GridCellView.swift */; };
 		3D9D9CF42BEAE295009E8232 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9D9CF32BEAE295009E8232 /* NetworkManager.swift */; };
 		3D9D9CF62BEAEABF009E8232 /* AlertItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9D9CF52BEAEABF009E8232 /* AlertItem.swift */; };
+		3D9D9CFA2BEAFC22009E8232 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9D9CF92BEAFC22009E8232 /* LoadingView.swift */; };
+		3D9D9CFC2BEAFD9D009E8232 /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9D9CFB2BEAFD9D009E8232 /* EmptyStateView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +45,8 @@
 		3D9D9CF12BEAE137009E8232 /* GridCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridCellView.swift; sourceTree = "<group>"; };
 		3D9D9CF32BEAE295009E8232 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		3D9D9CF52BEAEABF009E8232 /* AlertItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertItem.swift; sourceTree = "<group>"; };
+		3D9D9CF92BEAFC22009E8232 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		3D9D9CFB2BEAFD9D009E8232 /* EmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +113,8 @@
 		3D9D9CD32BEAB98A009E8232 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				3D9D9CF82BEAFC0C009E8232 /* EmptyStateView */,
+				3D9D9CF72BEAFBFC009E8232 /* LoadingView */,
 				3D9D9CF02BEAE10F009E8232 /* GridCell */,
 				3D9D9CE82BEAD21A009E8232 /* SearchView */,
 				3D9D9CE52BEAD07C009E8232 /* Buttons */,
@@ -207,6 +213,22 @@
 			path = GridCell;
 			sourceTree = "<group>";
 		};
+		3D9D9CF72BEAFBFC009E8232 /* LoadingView */ = {
+			isa = PBXGroup;
+			children = (
+				3D9D9CF92BEAFC22009E8232 /* LoadingView.swift */,
+			);
+			path = LoadingView;
+			sourceTree = "<group>";
+		};
+		3D9D9CF82BEAFC0C009E8232 /* EmptyStateView */ = {
+			isa = PBXGroup;
+			children = (
+				3D9D9CFB2BEAFD9D009E8232 /* EmptyStateView.swift */,
+			);
+			path = EmptyStateView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -285,7 +307,9 @@
 				3D9D9CC72BEAB86F009E8232 /* MainTabView.swift in Sources */,
 				3D9D9CE42BEABE65009E8232 /* GithubUser.swift in Sources */,
 				3D9D9CF62BEAEABF009E8232 /* AlertItem.swift in Sources */,
+				3D9D9CFA2BEAFC22009E8232 /* LoadingView.swift in Sources */,
 				3D9D9CF22BEAE137009E8232 /* GridCellView.swift in Sources */,
+				3D9D9CFC2BEAFD9D009E8232 /* EmptyStateView.swift in Sources */,
 				3D9D9CEC2BEADEBE009E8232 /* GithubUserProfileViewModel.swift in Sources */,
 				3D9D9CD82BEABA57009E8232 /* SearchGithubUserView.swift in Sources */,
 				3D9D9CC52BEAB86F009E8232 /* GithubSearchSwiftUIApp.swift in Sources */,

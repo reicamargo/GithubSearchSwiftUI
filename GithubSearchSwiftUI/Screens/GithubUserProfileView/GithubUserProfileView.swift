@@ -12,31 +12,39 @@ struct GithubUserProfileView: View {
     
     var body: some View {
         NavigationStack {
-            VStack {
-                SearchView(searchText: $viewModel.searchFollower, textPlaceholder: "Search a follower")
-                ScrollView {
-                    LazyVGrid(columns: viewModel.columns, spacing: 20, content: {
-                        ForEach(viewModel.followersFiltered) { follower in
-                            GridCellView(followerLogin: follower.login)
-                            .onTapGesture {
-                                viewModel.selectedUserLogin = follower.login
-                                viewModel.showGithubUserDetailView = true
+            ZStack {
+                if viewModel.isLoading {
+                    LoadingView()
+                }
+                
+                VStack {
+                    SearchView(searchText: $viewModel.searchFollower, textPlaceholder: "Search a follower")
+                    
+                    ScrollView {
+                        LazyVGrid(columns: viewModel.columns, spacing: 20, content: {
+                            
+                            ForEach(viewModel.followersFiltered) { follower in
+                                GridCellView(followerLogin: follower.login)
+                                    .onTapGesture {
+                                        viewModel.selectedUserLogin = follower.login
+                                        viewModel.showGithubUserDetailView = true
+                                    }
                             }
-                        }
-                    })
+                        })
+                    }
+                    .sheet(isPresented: $viewModel.showGithubUserDetailView) {
+                        GithubUserDetailView(login: viewModel.selectedUserLogin)
+                    }
                 }
-                .sheet(isPresented: $viewModel.showGithubUserDetailView) {
-                    GithubUserDetailView(login: viewModel.selectedUserLogin)
+                .task {
+                    await viewModel.loadFollowers()
                 }
+                .alert(viewModel.alertItem.title,
+                       isPresented: $viewModel.alertItem.showAlert,
+                       presenting: viewModel.alertItem,
+                       actions: { alertItem in alertItem.actionButton },
+                       message: { alertItem in alertItem.message })
             }
-            .task {
-                await viewModel.loadFollowers()
-            }
-            .alert(viewModel.alertItem.title,
-                   isPresented: $viewModel.alertItem.showAlert, 
-                   presenting: viewModel.alertItem, 
-                   actions: { alertItem in alertItem.actionButton },
-                   message: { alertItem in alertItem.message })
             .navigationTitle(viewModel.username)
             .navigationBarTitleDisplayMode(.inline)
         }
