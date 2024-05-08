@@ -12,12 +12,17 @@ struct UserDetailHeaderView: View {
     
     var body: some View {
         HStack(spacing: 10) {
-            Image(.avatarPlaceholder)
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .presentationCornerRadius(10)
-                .clipped()
-                .frame(width: 100, height: 100)
+            AsyncImage(url: URL(string: user?.avatarUrl ?? "")) { image in
+                image
+                    .resizable()
+            } placeholder: {
+                Image(.avatarPlaceholder)
+                    .resizable()
+            }
+            .aspectRatio(contentMode: .fit)
+            .clipShape(RoundedRectangle(cornerSize: CGSize(width: 20, height: 10)))
+            .frame(width: 100, height: 100)
+            
             VStack(alignment: .leading) {
                 Text(user?.login ?? "")
                     .font(.title)

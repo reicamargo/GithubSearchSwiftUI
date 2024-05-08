@@ -8,20 +8,27 @@
 import SwiftUI
 
 struct GridCellView: View {
-    var followerLogin: String
+    var follower: Follower
     
     var body: some View {
         VStack {
-            Image(.avatarPlaceholder)
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(width: 100, height: 100)
-            Text(followerLogin)
+            AsyncImage(url: URL(string: follower.avatarUrl)) { image in
+                image
+                    .resizable()
+            } placeholder: {
+                Image(.avatarPlaceholder)
+                    .resizable()
+            }
+            .aspectRatio(contentMode: .fit)
+            .clipShape(Circle())
+            .frame(width: 100, height: 100)
+            
+            Text(follower.login)
                 .multilineTextAlignment(.center)
         }
     }
 }
 
 #Preview {
-    GridCellView(followerLogin: "reicamargo")
+    GridCellView(follower: MockFollower.follower2)
 }
