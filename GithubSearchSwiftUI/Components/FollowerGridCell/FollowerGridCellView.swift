@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct GridCellView: View {
+struct FollowerGridCellView: View {
     var follower: Follower
     
     var body: some View {
@@ -30,5 +30,5 @@ struct GridCellView: View {
 }
 
 #Preview {
-    GridCellView(follower: MockFollower.follower2)
+    FollowerGridCellView(follower: MockFollower.follower2)
 }

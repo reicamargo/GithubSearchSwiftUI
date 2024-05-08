@@ -28,7 +28,7 @@ struct GithubUserProfileView: View {
                         LazyVGrid(columns: viewModel.columns, spacing: 20, content: {
                             
                             ForEach(viewModel.filteredFollowers) { follower in
-                                GridCellView(follower: follower)
+                                FollowerGridCellView(follower: follower)
                                     .onTapGesture {
                                         viewModel.selectedUserLogin = follower.login
                                         viewModel.showGithubUserDetailView = true
