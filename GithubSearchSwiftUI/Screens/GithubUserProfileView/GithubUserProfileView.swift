@@ -17,7 +17,7 @@ struct GithubUserProfileView: View {
                     LoadingView()
                 }
                 
-                if viewModel.followersFiltered.count == 0 && !viewModel.isLoading {
+                if viewModel.filteredFollowers.count == 0 && !viewModel.isLoading {
                     EmptyStateView(title: "This user has no followers", imageResource: .emptyStateLogo, description: "That's so sad 😔")
                 }
                 
@@ -27,7 +27,7 @@ struct GithubUserProfileView: View {
                     ScrollView {
                         LazyVGrid(columns: viewModel.columns, spacing: 20, content: {
                             
-                            ForEach(viewModel.followersFiltered) { follower in
+                            ForEach(viewModel.filteredFollowers) { follower in
                                 GridCellView(followerLogin: follower.login)
                                     .onTapGesture {
                                         viewModel.selectedUserLogin = follower.login
