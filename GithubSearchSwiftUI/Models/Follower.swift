@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Follower: Codable, Hashable {
+struct Follower: Codable, Hashable, Identifiable {
     let id: Int
     let login: String
     let avatarUrl: String

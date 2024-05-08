@@ -16,6 +16,13 @@
 		3D9D9CDF2BEABB49009E8232 /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9D9CDE2BEABB49009E8232 /* FavoritesView.swift */; };
 		3D9D9CE22BEABD6E009E8232 /* Follower.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9D9CE12BEABD6E009E8232 /* Follower.swift */; };
 		3D9D9CE42BEABE65009E8232 /* GithubUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9D9CE32BEABE65009E8232 /* GithubUser.swift */; };
+		3D9D9CE72BEAD097009E8232 /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9D9CE62BEAD097009E8232 /* ActionButton.swift */; };
+		3D9D9CEA2BEAD23B009E8232 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9D9CE92BEAD23B009E8232 /* SearchView.swift */; };
+		3D9D9CEC2BEADEBE009E8232 /* GithubUserProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9D9CEB2BEADEBE009E8232 /* GithubUserProfileViewModel.swift */; };
+		3D9D9CEF2BEAE03B009E8232 /* GithubUserDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9D9CEE2BEAE03B009E8232 /* GithubUserDetailView.swift */; };
+		3D9D9CF22BEAE137009E8232 /* GridCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9D9CF12BEAE137009E8232 /* GridCellView.swift */; };
+		3D9D9CF42BEAE295009E8232 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9D9CF32BEAE295009E8232 /* NetworkManager.swift */; };
+		3D9D9CF62BEAEABF009E8232 /* AlertItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9D9CF52BEAEABF009E8232 /* AlertItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +36,13 @@
 		3D9D9CDE2BEABB49009E8232 /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 		3D9D9CE12BEABD6E009E8232 /* Follower.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Follower.swift; sourceTree = "<group>"; };
 		3D9D9CE32BEABE65009E8232 /* GithubUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubUser.swift; sourceTree = "<group>"; };
+		3D9D9CE62BEAD097009E8232 /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
+		3D9D9CE92BEAD23B009E8232 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		3D9D9CEB2BEADEBE009E8232 /* GithubUserProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubUserProfileViewModel.swift; sourceTree = "<group>"; };
+		3D9D9CEE2BEAE03B009E8232 /* GithubUserDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubUserDetailView.swift; sourceTree = "<group>"; };
+		3D9D9CF12BEAE137009E8232 /* GridCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridCellView.swift; sourceTree = "<group>"; };
+		3D9D9CF32BEAE295009E8232 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		3D9D9CF52BEAEABF009E8232 /* AlertItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +97,7 @@
 		3D9D9CD22BEAB978009E8232 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				3D9D9CED2BEAE027009E8232 /* GithubUserDetailView */,
 				3D9D9CE02BEABB50009E8232 /* FavoritesView */,
 				3D9D9CDD2BEABB2D009E8232 /* GithubUserProfileView */,
 				3D9D9CD92BEABA5E009E8232 /* SearchGithubUserView */,
@@ -94,6 +109,9 @@
 		3D9D9CD32BEAB98A009E8232 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				3D9D9CF02BEAE10F009E8232 /* GridCell */,
+				3D9D9CE82BEAD21A009E8232 /* SearchView */,
+				3D9D9CE52BEAD07C009E8232 /* Buttons */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -103,6 +121,7 @@
 			children = (
 				3D9D9CD62BEAB9AE009E8232 /* Extensions */,
 				3D9D9CD52BEAB9A3009E8232 /* Managers */,
+				3D9D9CF52BEAEABF009E8232 /* AlertItem.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -110,6 +129,7 @@
 		3D9D9CD52BEAB9A3009E8232 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				3D9D9CF32BEAE295009E8232 /* NetworkManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -141,6 +161,7 @@
 		3D9D9CDD2BEABB2D009E8232 /* GithubUserProfileView */ = {
 			isa = PBXGroup;
 			children = (
+				3D9D9CEB2BEADEBE009E8232 /* GithubUserProfileViewModel.swift */,
 				3D9D9CDB2BEABB26009E8232 /* GithubUserProfileView.swift */,
 			);
 			path = GithubUserProfileView;
@@ -152,6 +173,38 @@
 				3D9D9CDE2BEABB49009E8232 /* FavoritesView.swift */,
 			);
 			path = FavoritesView;
+			sourceTree = "<group>";
+		};
+		3D9D9CE52BEAD07C009E8232 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				3D9D9CE62BEAD097009E8232 /* ActionButton.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
+		3D9D9CE82BEAD21A009E8232 /* SearchView */ = {
+			isa = PBXGroup;
+			children = (
+				3D9D9CE92BEAD23B009E8232 /* SearchView.swift */,
+			);
+			path = SearchView;
+			sourceTree = "<group>";
+		};
+		3D9D9CED2BEAE027009E8232 /* GithubUserDetailView */ = {
+			isa = PBXGroup;
+			children = (
+				3D9D9CEE2BEAE03B009E8232 /* GithubUserDetailView.swift */,
+			);
+			path = GithubUserDetailView;
+			sourceTree = "<group>";
+		};
+		3D9D9CF02BEAE10F009E8232 /* GridCell */ = {
+			isa = PBXGroup;
+			children = (
+				3D9D9CF12BEAE137009E8232 /* GridCellView.swift */,
+			);
+			path = GridCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -225,12 +278,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D9D9CDF2BEABB49009E8232 /* FavoritesView.swift in Sources */,
+				3D9D9CEA2BEAD23B009E8232 /* SearchView.swift in Sources */,
 				3D9D9CE22BEABD6E009E8232 /* Follower.swift in Sources */,
+				3D9D9CF42BEAE295009E8232 /* NetworkManager.swift in Sources */,
 				3D9D9CDC2BEABB26009E8232 /* GithubUserProfileView.swift in Sources */,
 				3D9D9CC72BEAB86F009E8232 /* MainTabView.swift in Sources */,
 				3D9D9CE42BEABE65009E8232 /* GithubUser.swift in Sources */,
+				3D9D9CF62BEAEABF009E8232 /* AlertItem.swift in Sources */,
+				3D9D9CF22BEAE137009E8232 /* GridCellView.swift in Sources */,
+				3D9D9CEC2BEADEBE009E8232 /* GithubUserProfileViewModel.swift in Sources */,
 				3D9D9CD82BEABA57009E8232 /* SearchGithubUserView.swift in Sources */,
 				3D9D9CC52BEAB86F009E8232 /* GithubSearchSwiftUIApp.swift in Sources */,
+				3D9D9CE72BEAD097009E8232 /* ActionButton.swift in Sources */,
+				3D9D9CEF2BEAE03B009E8232 /* GithubUserDetailView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

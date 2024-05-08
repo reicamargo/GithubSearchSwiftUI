@@ -8,15 +8,41 @@
 import SwiftUI
 
 struct GithubUserProfileView: View {
+    @ObservedObject var viewModel: GithubUserProfileViewModel
+    
     var body: some View {
         NavigationStack {
-            Text("Github User profile")
-                .navigationTitle("Github user name")
-                .navigationBarTitleDisplayMode(.inline)
+            VStack {
+                SearchView(searchText: $viewModel.searchFollower, textPlaceholder: "Search a follower")
+                ScrollView {
+                    LazyVGrid(columns: viewModel.columns, spacing: 20, content: {
+                        ForEach(viewModel.followersFiltered) { follower in
+                            GridCellView(followerLogin: follower.login)
+                            .onTapGesture {
+                                viewModel.selectedUserLogin = follower.login
+                                viewModel.showGithubUserDetailView = true
+                            }
+                        }
+                    })
+                }
+                .sheet(isPresented: $viewModel.showGithubUserDetailView) {
+                    GithubUserDetailView(login: viewModel.selectedUserLogin)
+                }
+            }
+            .task {
+                await viewModel.loadFollowers()
+            }
+            .alert(viewModel.alertItem.title,
+                   isPresented: $viewModel.alertItem.showAlert, 
+                   presenting: viewModel.alertItem, 
+                   actions: { alertItem in alertItem.actionButton },
+                   message: { alertItem in alertItem.message })
+            .navigationTitle(viewModel.username)
+            .navigationBarTitleDisplayMode(.inline)
         }
     }
 }
 
 #Preview {
-    GithubUserProfileView()
+    GithubUserProfileView(viewModel: GithubUserProfileViewModel(username: "leopug"))
 }
