@@ -9,7 +9,6 @@ import SwiftUI
 
 struct UserDetailGroupInfoView: View {
     @EnvironmentObject var userProfileViewModel: GithubUserProfileViewModel
-    @Environment(\.openURL) var openURL
     
     var viewModel: UserDetailGroupInfoViewModel
     
