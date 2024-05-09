@@ -20,6 +20,33 @@ final class GithubUserProfileViewModel: ObservableObject {
             }
         }
     }
+    var isFavorite: Bool {
+        get {
+            PersistenceManager.shared.isUserFavorite(username: username)
+        }
+        set {
+            Task {
+                do {
+                    let user = try await NetworkManager.shared.getUserProfileFrom(username)
+                    
+                    if newValue {
+                        try PersistenceManager.shared.update(user: user, actionType: .add)
+                    } else {
+                        try PersistenceManager.shared.update(user: user, actionType: .remove)
+                    }
+                    objectWillChange.send()
+                } catch {
+                    if let networkError = error as? NetworkError {
+                        alertItem.set(title: "Something went wrong", message: networkError.rawValue)
+                    } else if let persintenceError = error as? PersistenceError {
+                        alertItem.set(title: "Something's went wrong", message: persintenceError.rawValue)
+                    } else {
+                        alertItem.set(title: "Something's went wrong", message: "Unable to get favorites. Please try again later.")
+                    }
+                }
+            }
+        }
+    }
     
     var searchFollower = "" {
         didSet {
@@ -61,5 +88,4 @@ final class GithubUserProfileViewModel: ObservableObject {
             }
         }
     }
-    
 }

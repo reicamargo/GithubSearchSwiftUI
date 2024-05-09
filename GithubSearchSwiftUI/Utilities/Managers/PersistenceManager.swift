@@ -12,11 +12,11 @@ final class PersistenceManager {
     
     private init() { }
     
-    func loadFavorites() async throws -> [Follower] {
+    func loadFavorites() throws -> [Follower] {
         guard let favoriteData = UserDefaults.standard.object(forKey: Keys.favorites) as? Data else { return [] }
         
         do {
-            var decoder = JSONDecoder()
+            let decoder = JSONDecoder()
             return try decoder.decode([Follower].self, from: favoriteData)
             
         } catch {
@@ -24,29 +24,42 @@ final class PersistenceManager {
         }
     }
     
-    private func save(favorites: [Follower]) async throws {
+    private func save(favorites: [Follower]) throws {
         do {
-            var encoder = JSONEncoder()
+            let encoder = JSONEncoder()
             let jsonFavorite = try encoder.encode(favorites)
             
             UserDefaults.standard.setValue(jsonFavorite, forKey: Keys.favorites)
-            
+            return
         } catch {
             throw PersistenceError.unableToSave
         }
     }
     
-    func update(favorite: Follower, actionType: ActionType) async throws {
-        var favorites = try await loadFavorites()
+    func update(user: GithubUser, actionType: ActionType) throws {
+        var favorites = try loadFavorites()
         
         switch actionType {
         case .add:
+            guard !favorites.contains(where: { $0.id == user.id }) else { throw PersistenceError.favoriteAlreadyExists }
+            let favorite = Follower(id: user.id, login: user.login, avatarUrl: user.avatarUrl)
+            
             favorites.append(favorite)
         case .remove:
-            favorites.removeAll { $0.id == favorite.id }
+            favorites.removeAll { $0.id == user.id }
         }
         
-        try await save(favorites: favorites)
+        try save(favorites: favorites)
+        return
+    }
+    
+    func isUserFavorite(username: String) -> Bool {
+        do {
+            let favorites = try loadFavorites()
+            return favorites.contains { $0.login ==  username }
+        } catch {
+            return false
+        }
     }
 }
 
@@ -57,6 +70,7 @@ enum ActionType {
 enum PersistenceError: String, Error {
     case unableToDecode = "Unable to load your favorites..."
     case unableToSave = "Unable to save your favorites..."
+    case favoriteAlreadyExists = "This user is already in your favorite list. You should really LIKE them!"
 }
 
 struct Keys {

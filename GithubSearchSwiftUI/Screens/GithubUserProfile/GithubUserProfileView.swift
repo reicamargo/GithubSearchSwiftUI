@@ -40,6 +40,15 @@ struct GithubUserProfileView: View {
                         GithubUserDetailView(viewModel: GithubUserDetailViewModel(login: viewModel.selectedUserLogin))
                             .environmentObject(viewModel)
                     }
+                    .toolbar {
+                        Button {
+                            viewModel.isFavorite.toggle()
+                        } label: {
+                            FavoriteButton(isFavorite: viewModel.isFavorite)
+                                .padding(.trailing, 20)
+                        }
+                        
+                    }
                 }
                 .task {
                     await viewModel.loadFollowers()

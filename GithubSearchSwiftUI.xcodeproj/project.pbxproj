@@ -36,6 +36,7 @@
 		3D9D9D122BEC0CE3009E8232 /* FavoritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9D9D112BEC0CE3009E8232 /* FavoritesViewModel.swift */; };
 		3D9D9D152BEC1178009E8232 /* FavoriteListCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9D9D142BEC1178009E8232 /* FavoriteListCellView.swift */; };
 		3D9D9D172BEC126D009E8232 /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9D9D162BEC126D009E8232 /* PersistenceManager.swift */; };
+		3D9D9D192BEC197B009E8232 /* FavoriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9D9D182BEC197B009E8232 /* FavoriteButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +70,7 @@
 		3D9D9D112BEC0CE3009E8232 /* FavoritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewModel.swift; sourceTree = "<group>"; };
 		3D9D9D142BEC1178009E8232 /* FavoriteListCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListCellView.swift; sourceTree = "<group>"; };
 		3D9D9D162BEC126D009E8232 /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
+		3D9D9D182BEC197B009E8232 /* FavoriteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -215,6 +217,7 @@
 			children = (
 				3D9D9CE62BEAD097009E8232 /* NavigationButton.swift */,
 				3D9D9D092BEBF285009E8232 /* xDismissButton.swift */,
+				3D9D9D182BEC197B009E8232 /* FavoriteButton.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -375,6 +378,7 @@
 				3D9D9CDC2BEABB26009E8232 /* GithubUserProfileView.swift in Sources */,
 				3D9D9CFE2BEB01B5009E8232 /* GithubUserDetailViewModel.swift in Sources */,
 				3D9D9CC72BEAB86F009E8232 /* MainTabView.swift in Sources */,
+				3D9D9D192BEC197B009E8232 /* FavoriteButton.swift in Sources */,
 				3D9D9D0A2BEBF285009E8232 /* xDismissButton.swift in Sources */,
 				3D9D9CE42BEABE65009E8232 /* GithubUser.swift in Sources */,
 				3D9D9CF62BEAEABF009E8232 /* AlertItem.swift in Sources */,
