@@ -12,17 +12,23 @@ struct GithubUserDetailView: View {
     @ObservedObject var viewModel: GithubUserDetailViewModel
     
     var body: some View {
-        VStack(spacing: 20) {
-            UserDetailHeaderView(user: viewModel.userDetail)
-            
-            UserDetailGroupInfoView(viewModel: UserDetailGroupInfoViewModel(goToButton: .githubProfile, user: viewModel.userDetail))
-            
-            UserDetailGroupInfoView(viewModel: UserDetailGroupInfoViewModel(goToButton: .followersScreen, user: viewModel.userDetail))
-            
-            Text("Github user since \(viewModel.userDetail?.createdAt.convertToDisplayFormat() ?? "")")
-                .font(.subheadline)
-                .foregroundStyle(.secondary)
+        ScrollView {
+            VStack(spacing: 20) {
+                UserDetailHeaderView(user: viewModel.userDetail)
+                
+                UserDetailGroupInfoView(viewModel: UserDetailGroupInfoViewModel(goToButton: .githubProfile, user: viewModel.userDetail))
+                
+                UserDetailGroupInfoView(viewModel: UserDetailGroupInfoViewModel(goToButton: .followersScreen, user: viewModel.userDetail))
+                
+                Text("Github user since \(viewModel.userDetail?.createdAt.convertToDisplayFormat() ?? "")")
+                    .font(.subheadline)
+                    .foregroundStyle(.secondary)
+            }
+            .task {
+                await viewModel.loadUserDetail()
+            }
         }
+        .padding(.top, 40)
         .overlay(
             Button {
                 userProfileViewModel.showGithubUserDetailView = false
@@ -30,9 +36,6 @@ struct GithubUserDetailView: View {
                 xDismissButton()
             },
             alignment: .topTrailing)
-        .task {
-            await viewModel.loadUserDetail()
-        }
     }
 }
 

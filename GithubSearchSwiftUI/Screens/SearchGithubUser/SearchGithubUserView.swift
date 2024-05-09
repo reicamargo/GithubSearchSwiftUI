@@ -27,6 +27,8 @@ struct SearchGithubUserView: View {
                 .disabled(searchText.isEmpty)
                 .buttonStyle(.bordered)
                 .tint(.accent)
+                .padding(.leading, 40)
+                .padding(.trailing, 40)
                 
                 Spacer()
             }
