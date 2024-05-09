@@ -17,10 +17,6 @@ struct GithubUserProfileView: View {
                     LoadingView()
                 }
                 
-                if viewModel.filteredFollowers.count == 0 && !viewModel.isLoading {
-                    EmptyStateView(title: "This user has no followers", imageResource: .emptyStateLogo, description: "That's so sad 😔")
-                }
-                
                 VStack {
                     SearchView(searchText: $viewModel.searchFollower, textPlaceholder: "Search a follower")
                     
@@ -58,6 +54,10 @@ struct GithubUserProfileView: View {
                        presenting: viewModel.alertItem,
                        actions: { alertItem in alertItem.actionButton },
                        message: { alertItem in alertItem.message })
+                
+                if viewModel.filteredFollowers.count == 0 && !viewModel.isLoading {
+                    EmptyStateView(title: "This user has no followers", imageResource: .emptyStateLogo, description: "That's so sad 😔")
+                }
             }
             .navigationTitle(viewModel.username)
             .navigationBarTitleDisplayMode(.inline)
