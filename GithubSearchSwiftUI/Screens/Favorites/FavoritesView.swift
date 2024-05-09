@@ -25,8 +25,8 @@ struct FavoritesView: View {
                             FavoriteListCellView(favorite: favorite)
                         }
                     }
-                    .task {
-                        await viewModel.loadFavorites()
+                    .onAppear() {
+                        viewModel.loadFavorites()
                     }
                     .alert(viewModel.alertItem.title,
                            isPresented: $viewModel.alertItem.showAlert,

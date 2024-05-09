@@ -13,7 +13,7 @@ final class FavoritesViewModel: ObservableObject {
     @Published var isLoading = false
     @Published var alertItem = AlertItem()
     
-    func loadFavorites() async {
+    func loadFavorites() {
         isLoading = true
         do {
             favorites = try PersistenceManager.shared.loadFavorites()
