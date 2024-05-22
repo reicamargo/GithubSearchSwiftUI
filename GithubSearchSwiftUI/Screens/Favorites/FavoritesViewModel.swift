@@ -22,7 +22,7 @@ final class FavoritesViewModel: ObservableObject {
             isLoading = false
             
             if let persintenceError = error as? PersistenceError {
-                alertItem.set(title: "Something's went wrong", message: persintenceError.rawValue)
+                alertItem.set(title: "Something's went wrong", message: persintenceError.description)
             } else {
                 alertItem.set(title: "Something's went wrong", message: "Unable to get favorites. Please try again later.")
             }

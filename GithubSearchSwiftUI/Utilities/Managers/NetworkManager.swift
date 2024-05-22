@@ -50,8 +50,17 @@ final class NetworkManager {
     }
 }
 
-enum NetworkError: String, Error {
-    case invalidURL = "Invalid URL. Please try again later..."
-    case invalidData = "Invalid Data. Unable to parse the data returned..."
-    case invalidServerResponse = "Invalid server response..."
+enum NetworkError: Error {
+    case invalidURL, invalidData, invalidServerResponse
+    
+    var description: String {
+        switch self {
+        case .invalidURL:
+            return "Invalid URL. Please try again later..."
+        case .invalidData:
+            return "Invalid Data. Unable to parse the data returned..."
+        case .invalidServerResponse:
+            return "Invalid server response..."
+        }
+    }
 }

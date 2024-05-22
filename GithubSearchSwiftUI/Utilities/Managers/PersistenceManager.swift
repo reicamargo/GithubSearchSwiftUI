@@ -67,10 +67,19 @@ enum ActionType {
     case add, remove
 }
 
-enum PersistenceError: String, Error {
-    case unableToDecode = "Unable to load your favorites..."
-    case unableToSave = "Unable to save your favorites..."
-    case favoriteAlreadyExists = "This user is already in your favorite list. You should really LIKE them!"
+enum PersistenceError: Error {
+    case unableToDecode, unableToSave, favoriteAlreadyExists
+    
+    var description: String {
+        switch self {
+        case .unableToDecode:
+            return "Unable to load your favorites..."
+        case .unableToSave:
+            return "Unable to save your favorites..."
+        case .favoriteAlreadyExists:
+            return "This user is already in your favorite list. You should really LIKE them!"
+        }
+    }
 }
 
 struct Keys {
