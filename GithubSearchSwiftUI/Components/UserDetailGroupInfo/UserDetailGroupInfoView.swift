@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct UserDetailGroupInfoView: View {
+    @Environment(\.dismiss) var dismiss
     @EnvironmentObject var userProfileViewModel: GithubUserProfileViewModel
     
     var viewModel: UserDetailGroupInfoViewModel
@@ -29,7 +30,8 @@ struct UserDetailGroupInfoView: View {
                     if viewModel.goToButton == .followersScreen {
                         Button {
                             userProfileViewModel.username = viewModel.username
-                            userProfileViewModel.showGithubUserDetailView = false
+                            dismiss()
+                            //userProfileViewModel.showGithubUserDetailView = false
                         } label: {
                             NavigationButton(title: viewModel.buttonTitle,
                                              systemImage: viewModel.systemButtonImage)

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct GithubUserDetailView: View {
-    @EnvironmentObject var userProfileViewModel: GithubUserProfileViewModel
+    @Environment(\.dismiss) var dismiss
     @ObservedObject var viewModel: GithubUserDetailViewModel
     
     var body: some View {
@@ -31,7 +31,7 @@ struct GithubUserDetailView: View {
         .padding(.top, 40)
         .overlay(
             Button {
-                userProfileViewModel.showGithubUserDetailView = false
+                dismiss()
             } label: {
                 xDismissButton()
             },
