@@ -31,7 +31,6 @@ struct UserDetailGroupInfoView: View {
                         Button {
                             userProfileViewModel.username = viewModel.username
                             dismiss()
-                            //userProfileViewModel.showGithubUserDetailView = false
                         } label: {
                             NavigationButton(title: viewModel.buttonTitle,
                                              systemImage: viewModel.systemButtonImage)
