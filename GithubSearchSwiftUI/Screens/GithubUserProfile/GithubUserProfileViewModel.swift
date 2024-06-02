@@ -9,10 +9,10 @@ import SwiftUI
 
 @MainActor
 final class GithubUserProfileViewModel: ObservableObject {
-    @Published var filteredFollowers: [Follower] = []
     @Published var showGithubUserDetailView: Bool = false
     @Published var alertItem = AlertItem()
     @Published var isLoading: Bool = false
+    @Published var searchFollower = ""
     @Published var username: String {
         didSet {
             Task {
@@ -48,20 +48,18 @@ final class GithubUserProfileViewModel: ObservableObject {
         }
     }
     
-    var searchFollower = "" {
-        didSet {
-            guard !searchFollower.isEmpty else {
-                filteredFollowers = followers
-                return
-            }
-            filteredFollowers = followers.filter { $0.login.localizedCaseInsensitiveContains(searchFollower) }
+    
+    
+    var filteredFollowers: [Follower] {
+        guard !searchFollower.isEmpty else {
+            return followers
         }
+        
+        return followers.filter { $0.login.localizedCaseInsensitiveContains(searchFollower) }
     }
-    private var followers: [Follower] = [] {
-        didSet {
-            filteredFollowers = followers
-        }
-    }
+    
+    private var followers: [Follower] = []
+    
     let columns: [GridItem] = [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]
     var selectedUserLogin: String = ""
     
