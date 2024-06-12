@@ -13,8 +13,10 @@ final class GithubUserProfileViewModel: ObservableObject {
     @Published var alertItem = AlertItem()
     @Published var isLoading: Bool = false
     @Published var searchFollower = ""
-    @Published var username: String {
+    var username: String = ""
+    {
         didSet {
+            searchFollower = ""
             Task {
                 await loadFollowers()
             }
