@@ -20,7 +20,7 @@ struct FavoritesView: View {
                 VStack {
                     List(viewModel.favorites) { favorite in
                         NavigationLink {
-                            GithubUserProfileView(viewModel: GithubUserProfileViewModel(username: favorite.login))
+                            GithubUserProfileView(searchUsername: favorite.login)
                         } label: {
                             FavoriteListCellView(favorite: favorite)
                         }

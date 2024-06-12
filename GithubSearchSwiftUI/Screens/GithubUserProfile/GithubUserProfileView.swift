@@ -11,7 +11,6 @@ struct GithubUserProfileView: View {
     @ObservedObject var viewModel: GithubUserProfileViewModel
     
     var body: some View {
-        NavigationStack {
             ZStack {
                 if viewModel.isLoading {
                     LoadingView()
@@ -61,10 +60,16 @@ struct GithubUserProfileView: View {
             }
             .navigationTitle(viewModel.username)
             .navigationBarTitleDisplayMode(.inline)
-        }
+            .onAppear {
+                viewModel.searchFollower = ""
+            }
+    }
+    
+    init(searchUsername: String) {
+        viewModel = GithubUserProfileViewModel(username: searchUsername)
     }
 }
 
 #Preview {
-    GithubUserProfileView(viewModel: GithubUserProfileViewModel(username: "leopug"))
+    GithubUserProfileView(searchUsername: "leopug")
 }

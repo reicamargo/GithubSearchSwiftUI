@@ -21,7 +21,7 @@ struct SearchGithubUserView: View {
                 
                 SearchView(searchText: $searchText, textPlaceholder: "Enter a username")
                 
-                NavigationLink(destination: GithubUserProfileView(viewModel: GithubUserProfileViewModel(username: searchText))) {
+                NavigationLink(value: searchText) {
                     NavigationButton(title: "Get followers", systemImage: "person.3")
                 }
                 .disabled(searchText.isEmpty)
@@ -34,6 +34,13 @@ struct SearchGithubUserView: View {
             }
             .navigationTitle("Search")
             .navigationBarTitleDisplayMode(.inline)
+            .navigationDestination(for: String.self) { searchText in
+                GithubUserProfileView(searchUsername: searchText)
+            }
+            .onAppear {
+                searchText = ""
+            }
+            
         }
     }
 }
