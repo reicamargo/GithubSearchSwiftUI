@@ -56,8 +56,12 @@ struct UserDetailGroupInfoView: View {
         .padding(.leading, 10)
         .padding(.trailing, 10)
     }
+    
+    init(goToButton: GoTo, user: GithubUser?) {
+        viewModel = UserDetailGroupInfoViewModel(goToButton: goToButton, user: user)
+    }
 }
 
 #Preview {
-    UserDetailGroupInfoView(viewModel: UserDetailGroupInfoViewModel(goToButton: .githubProfile, user: MockGithubUser.sampleUser))
+    UserDetailGroupInfoView(goToButton: .githubProfile, user: MockGithubUser.sampleUser)
 }

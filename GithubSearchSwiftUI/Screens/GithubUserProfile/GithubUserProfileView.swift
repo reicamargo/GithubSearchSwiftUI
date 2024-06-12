@@ -32,7 +32,7 @@ struct GithubUserProfileView: View {
                         })
                     }
                     .sheet(isPresented: $viewModel.showGithubUserDetailView) {
-                        GithubUserDetailView(viewModel: GithubUserDetailViewModel(login: viewModel.selectedUserLogin))
+                        GithubUserDetailView(login: viewModel.selectedUserLogin)
                             .environmentObject(viewModel)
                     }
                     .toolbar {
@@ -54,7 +54,7 @@ struct GithubUserProfileView: View {
                        actions: { alertItem in alertItem.actionButton },
                        message: { alertItem in alertItem.message })
                 
-                if viewModel.filteredFollowers.count == 0 && !viewModel.isLoading {
+                if viewModel.filteredFollowers.isEmpty && !viewModel.isLoading {
                     EmptyStateView(title: "This user has no followers", imageResource: .emptyStateLogo, description: "That's so sad 😔")
                 }
             }
@@ -65,11 +65,11 @@ struct GithubUserProfileView: View {
             }
     }
     
-    init(searchUsername: String) {
-        viewModel = GithubUserProfileViewModel(username: searchUsername)
+    init(username: String) {
+        viewModel = GithubUserProfileViewModel(username: username)
     }
 }
 
 #Preview {
-    GithubUserProfileView(searchUsername: "leopug")
+    GithubUserProfileView(username: "leopug")
 }

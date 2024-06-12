@@ -16,9 +16,9 @@ struct GithubUserDetailView: View {
             VStack(spacing: 20) {
                 UserDetailHeaderView(user: viewModel.userDetail)
                 
-                UserDetailGroupInfoView(viewModel: UserDetailGroupInfoViewModel(goToButton: .githubProfile, user: viewModel.userDetail))
+                UserDetailGroupInfoView(goToButton: .githubProfile, user: viewModel.userDetail)
                 
-                UserDetailGroupInfoView(viewModel: UserDetailGroupInfoViewModel(goToButton: .followersScreen, user: viewModel.userDetail))
+                UserDetailGroupInfoView(goToButton: .followersScreen, user: viewModel.userDetail)
                 
                 Text("Github user since \(viewModel.userDetail?.createdAt.convertToDisplayFormat() ?? "")")
                     .font(.subheadline)
@@ -37,8 +37,12 @@ struct GithubUserDetailView: View {
             },
             alignment: .topTrailing)
     }
+    
+    init(login: String) {
+        viewModel = GithubUserDetailViewModel(login: login)
+    }
 }
 
 #Preview {
-    GithubUserDetailView(viewModel: GithubUserDetailViewModel(login: "reicamargo"))
+    GithubUserDetailView(login: "reicamargo")
 }

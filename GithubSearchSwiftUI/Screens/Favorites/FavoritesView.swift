@@ -19,9 +19,7 @@ struct FavoritesView: View {
                 
                 VStack {
                     List(viewModel.favorites) { favorite in
-                        NavigationLink {
-                            GithubUserProfileView(searchUsername: favorite.login)
-                        } label: {
+                        NavigationLink(value: favorite.login) {
                             FavoriteListCellView(favorite: favorite)
                         }
                     }
@@ -35,12 +33,15 @@ struct FavoritesView: View {
                            message: { alertItem in alertItem.message })
                 }
                 
-                if viewModel.favorites.count == 0 && !viewModel.isLoading{
+                if viewModel.favorites.isEmpty && !viewModel.isLoading{
                     EmptyStateView(title: "You don't have any favorites", imageResource: .emptyStateLogo, description: "Go search and favorite them!")
                 }
             }
             .navigationTitle("Favorites")
             .navigationBarTitleDisplayMode(.inline)
+            .navigationDestination(for: String.self) { username in
+                GithubUserProfileView(username: username)
+            }
         }
     }
 }

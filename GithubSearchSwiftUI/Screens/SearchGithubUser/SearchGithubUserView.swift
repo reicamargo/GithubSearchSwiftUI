@@ -35,7 +35,7 @@ struct SearchGithubUserView: View {
             .navigationTitle("Search")
             .navigationBarTitleDisplayMode(.inline)
             .navigationDestination(for: String.self) { searchText in
-                GithubUserProfileView(searchUsername: searchText)
+                GithubUserProfileView(username: searchText)
             }
             .onAppear {
                 searchText = ""
